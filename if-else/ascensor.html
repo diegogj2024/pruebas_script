@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Simulador de Ascensor</title>
+    </head>
+    <body>
+        <script>
+            /*Escribe un programa que simule el funcionamiento de un ascensor. El usuario ingresa el piso al
+que desea ir, y el programa verifica si es un piso válido (usar un rango de numero). Si es
+válido, el ascensor se mueve al piso deseado. Si no es válido, muestra un mensaje de error.*/
+            function tomar_datos() {
+                let pisoDeseado = parseInt(prompt("Ingrese el piso al que desea ir (1-10):"));
+                procesar_datos(pisoDeseado);
+            }
+
+            function procesar_datos(pisoDeseado) {
+                if (pisoDeseado >= 1 && pisoDeseado <= 10) {
+                    imprimir_datos(pisoDeseado);
+                } else {
+                    alert("Error: El piso ingresado no es válido. Por favor, ingrese un número entre 1 y 10.");
+                }
+            }
+
+            function imprimir_datos(pisoDeseado) {
+                alert("El ascensor se está moviendo al piso " + pisoDeseado + ".");
+                console.log("Ascensor en movimiento al piso " + pisoDeseado + ".");
+            }
+
+            tomar_datos();
+        </script>
+    </body>
+</html>

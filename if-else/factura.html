@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Simulación de Factura</title>
+    </head>
+    <body>
+        <script>
+            /*Escribe un programa que simule la creación de una factura. Debes utilizar todas las
+variables mencionadas anteriormente en un contexto relacionado con una compra.
+Asigna valores a las variables. Por ejemplo, define un nombre de cliente, un producto, la
+cantidad de productos, el precio unitario, indica si el cliente es estudiante o no, y asigna
+un tipo de cliente representado por una letra (A, B, C, etc.).
+- Calcula el subtotal multiplicando la cantidad de productos por el precio unitario.
+- Calcula el impuesto, que puede ser un 13% del subtotal si el cliente no es estudiante, o
+un 5% si lo es.
+- Calcula el total sumando el subtotal y el impuesto.
+Muestra un mensaje que contenga la factura con los siguientes detalles:*/
+            function tomar_datos() {
+                let nombreCliente = prompt("Ingrese el nombre del cliente:");
+                let producto = prompt("Ingrese el nombre del producto:");
+                let cantidad = parseInt(prompt("Ingrese la cantidad de productos:"));
+                let precioUnitario = parseFloat(prompt("Ingrese el precio unitario del producto:"));
+                let esEstudiante = confirm("¿El cliente es estudiante?");
+                let tipoCliente = prompt("Ingrese el tipo de cliente (A, B, C, etc.):");
+
+                procesar_datos(nombreCliente, producto, cantidad, precioUnitario, esEstudiante, tipoCliente);
+            }
+
+            function procesar_datos(nombreCliente, producto, cantidad, precioUnitario, esEstudiante, tipoCliente) {
+                let subtotal = cantidad * precioUnitario;
+                let impuesto;
+                if (esEstudiante) {
+                   impuesto = subtotal * 0.05;
+                }else {
+                   impuesto = subtotal * 0.13;
+                }
+                let total = subtotal + impuesto;
+
+                imprimir_datos(nombreCliente, producto, cantidad, precioUnitario, subtotal, impuesto, total, tipoCliente);
+            }
+
+            function imprimir_datos(nombreCliente, producto, cantidad, precioUnitario, subtotal, impuesto, total, tipoCliente) {
+                let mensajeFactura = `
+                    Factura:
+                    Nombre del cliente: ${nombreCliente}
+                    Producto: ${producto}
+                    Cantidad: ${cantidad}
+                    Precio unitario: $${precioUnitario.toFixed(2)}
+                    Subtotal: $${subtotal.toFixed(2)}
+                    Impuesto: $${impuesto.toFixed(2)}
+                    Total: $${total.toFixed(2)}
+                    Tipo de cliente: ${tipoCliente}
+                `;
+                alert(mensajeFactura);
+                console.log(mensajeFactura);
+            }
+
+            tomar_datos();
+        </script>
+    </body>
+</html>

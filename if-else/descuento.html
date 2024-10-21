@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Calculadora de Descuento</title>
+    </head>
+    <body>
+        <script>
+            /*Escribe un programa que calcule el descuento en una tienda según el monto de compra. Los
+requerimientos son:
+Solicitar al usuario el monto total de compra.
+Calcular el descuento según las siguientes condiciones:
+Si el monto de compra es mayor o igual a 1000, aplicar un descuento del 10%.
+Si el monto de compra es mayor o igual a 500, aplicar un descuento del 5%.
+En cualquier otro caso, no aplicar descuento.
+Mostrar el monto total con el descuento aplicado.*/
+            function tomar_datos() {
+                let monto = parseFloat(prompt("Ingrese el monto total de la compra:"));
+                procesar_datos(monto);
+            }
+
+            function procesar_datos(monto) {
+                let descuento = 0;
+                
+                if (monto >= 1000) {
+                    descuento = monto * 0.10;
+                } else if (monto >= 500) {
+                    descuento = monto * 0.05;
+                }
+                
+                let monto_final = monto - descuento;
+                imprimir_datos(monto_final);
+            }
+
+            function imprimir_datos(monto_final) {
+                alert("El monto total con descuento es: $" + monto_final.toFixed(2));
+                console.log("Monto total con descuento: $" + monto_final.toFixed(2));
+            }
+
+            tomar_datos();
+        </script>
+    </body>
+</html>

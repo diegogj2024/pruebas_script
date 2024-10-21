@@ -6,36 +6,41 @@
     <body>
         <script>
             function tomar_datos(){
-                condicion=0
-                contador=0
-                while(condicion==0){
-                 num=parseInt(prompt("ingrese un numero"));
-                 procesar_datos(num);
-                 if(num>=1 || num<=10){
-                    contador=contador+1;
-                    operacion=operacion+num
-                 }
-                 else if(num>10 || num<1 || num==0){
-                    contador=contador-1;
-                    alert("este numero no es valido");
-                 }
-                 if(contador==3){
-                    break;
-                 }
+                let condicion = 0;
+                let contador = 0;
+                let operacion = 0;
+                while(condicion == 0){
+                    let num = parseInt(prompt("Ingrese un número entre 1 y 10"));
+                    if(num >= 1 && num <= 10){
+                        contador = contador + 1;
+                        operacion = operacion + num;
+                    } else {
+                        alert("Este número no es válido");
+                    }
+                    if(contador == 3){
+                        condicion = 1;
+                    }
                 }
-                procesar_dato(operacion)
+                procesar_datos(operacion);
             }
     
             function procesar_datos(operacion){
-                resultado=operacion/3
+                let resultado = operacion / 3;
+                if(resultado>5){
+                    impresion=true
+                }
+                else{
+                    impresion=false
+                }
+                imprimir(impresion);
             }
     
-            function imprimir(resultado){
-                alert(resultado);
-                console.log(resultado);
+            function imprimir(impresion){
+                alert(impresion);
+                console.log(impresion);
             }
     
-            tomar_datos()
+            tomar_datos();
         </script>
     </body>
 </html>

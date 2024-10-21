@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Clasificación de triángulos</title>
+    </head>
+    <body>
+        <script>
+            /*Escribe un programa que clasifique un triángulo según sus lados. Los requerimientos son:
+Solicitar al usuario los tres lados del triángulo.
+Verificar si el triángulo es equilátero (todos los lados son iguales), isósceles (dos lados son iguales)
+o escaleno (ningún lado es igual a otro).
+Mostrar un mensaje con la clasificación del triángulo.*/
+            function tomar_datos() {
+                let lado1 = parseFloat(prompt("Ingrese el primer lado del triángulo:"));
+                let lado2 = parseFloat(prompt("Ingrese el segundo lado del triángulo:"));
+                let lado3 = parseFloat(prompt("Ingrese el tercer lado del triángulo:"));
+                procesar_datos(lado1, lado2, lado3);
+            }
+
+            function procesar_datos(lado1, lado2, lado3) {
+                let tipoTriangulo;
+                
+                if (lado1 === lado2 && lado2 === lado3) {
+                    tipoTriangulo = "Equilátero";
+                } else if (lado1 === lado2 || lado1 === lado3 || lado2 === lado3) {
+                    tipoTriangulo = "Isósceles";
+                } else {
+                    tipoTriangulo = "Escaleno";
+                }
+
+                imprimir_datos(tipoTriangulo);
+            }
+
+            function imprimir_datos(tipoTriangulo) {
+                alert("El triángulo es: " + tipoTriangulo);
+                console.log("El triángulo es: " + tipoTriangulo);
+            }
+
+            tomar_datos();
+        </script>
+    </body>
+</html>
