@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Juan</title>
+    </head>
+    <body>
+        <script>
+            function tomar_datos(){
+                num=parseInt(prompt("ingrese la cantidad de dolares de Juan"));
+                procesar_datos(num);
+            }
+    
+            function procesar_datos(num){
+                David=num/2;
+                cantidad=num+David;
+                jose=cantidad/2;
+                resultado=num+David+jose;
+                imprimir(resultado);
+            }
+    
+            function imprimir(resultado){
+                alert(resultado);
+                console.log(resultado);
+            }
+    
+            tomar_datos()
+        </script>
+    </body>
+</html>

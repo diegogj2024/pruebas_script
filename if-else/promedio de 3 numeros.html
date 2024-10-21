@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>promedio</title>
+    </head>
+    <body>
+        <script>
+            function tomar_datos(){
+                condicion=0
+                contador=0
+                while(condicion==0){
+                 num=parseInt(prompt("ingrese un numero"));
+                 procesar_datos(num);
+                 if(num>=1 || num<=10){
+                    contador=contador+1;
+                    operacion=operacion+num
+                 }
+                 else if(num>10 || num<1 || num==0){
+                    contador=contador-1;
+                    alert("este numero no es valido");
+                 }
+                 if(contador==3){
+                    break;
+                 }
+                }
+                procesar_dato(operacion)
+            }
+    
+            function procesar_datos(operacion){
+                resultado=operacion/3
+            }
+    
+            function imprimir(resultado){
+                alert(resultado);
+                console.log(resultado);
+            }
+    
+            tomar_datos()
+        </script>
+    </body>
+</html>
