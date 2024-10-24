@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title>operacion</title>
+    </head>
+    <body>
+        <script>
+            function tomar_datos(){
+                let numero1=parseInt(prompt("ingrese un numero"))
+                let numero2=parseInt(prompt("ingrese otro numero"))
+                var operacion=prompt("ahora ingrese la operacion matematica=[+,-,*,/]")
+                procesar(numero1,numero2,operacion)
+            }
+            function procesar(numero1,numero2,operacion){
+                let resultado;
+                switch(operacion){
+                    case '+':
+                        resultado=numero1+numero2;
+                        break;
+                    case "-":
+                        resultado=numero1-numero2
+                        break;
+                    case "*":
+                        resultado=numero1*numero2
+                        break;
+                    case "/":
+                        resultado=numero1/numero2
+                        break;
+                    default:
+                        alert("esta opcion no existe")
+                        break;
+                }
+                imprimir(resultado)
+            }
+
+            function imprimir(resultado){
+                alert("el resultado es"+resultado)
+                console.log("el resultado es"+resultado)
+            }
+        tomar_datos()
+        </script>
+    </body>
+</html>
