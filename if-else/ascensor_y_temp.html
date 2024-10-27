@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Simulador de Ascensor con Sensor de Temperatura</title>
+    </head>
+    <body>
+        <script>
+            /*Combina las dos simulaciones anteriores. El programa debe simular un ascensor que lleva al
+usuario a un piso deseado. Antes de moverse, el programa verifica si la temperatura ambiente
+está dentro del rango aceptable. Si la temperatura está dentro del rango, el ascensor se mueve
+al piso deseado. Si la temperatura está fuera del rango, muestra un mensaje de que la
+temperatura no es adecuada y no permite el movimiento del ascensor.*/
+            function tomar_datos() {
+                let temperaturaActual = parseFloat(prompt("Ingrese la temperatura actual en °C:"));
+                let pisoDeseado = parseInt(prompt("Ingrese el piso al que desea ir (1-10):"));
+                procesar_datos(temperaturaActual, pisoDeseado);
+            }
+
+            function procesar_datos(temperaturaActual, pisoDeseado) {
+                if (temperaturaActual < 18 || temperaturaActual > 25) {
+                    alert("La temperatura no es adecuada. El ascensor no se moverá.");
+                } else if (pisoDeseado >= 1 && pisoDeseado <= 10) {
+                    imprimir_datos(pisoDeseado);
+                } else {
+                    alert("Error: El piso ingresado no es válido. Por favor, ingrese un número entre 1 y 10.");
+                }
+            }
+
+            function imprimir_datos(pisoDeseado) {
+                alert("El ascensor se está moviendo al piso " + pisoDeseado + ".");
+                console.log("Ascensor en movimiento al piso " + pisoDeseado + ".");
+            }
+
+            tomar_datos();
+        </script>
+    </body>
+</html>

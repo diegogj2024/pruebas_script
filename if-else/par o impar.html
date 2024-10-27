@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>par e impar</title>
+</head>
+<body>
+    <script>
+        /*Programa que verifica si un número es par o impar*/
+        function tomar_datos(){
+            num=parseInt(prompt("ingrese un numero"));
+            procesar_datos(num);
+        }
+
+        function procesar_datos(num){
+            if (num%2==0){
+              resultado="par";
+            }
+            else{
+             resultado="impar"
+            }
+            imprimir(resultado)
+        }
+
+        function imprimir(resultado){
+            alert(resultado);
+            console.log(resultado);
+        }
+
+        tomar_datos()
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Simulador de Ascensor con Límite de Peso</title>
+    </head>
+    <body>
+        <script>
+            /*Desarrolla un programa que simule un ascensor que tiene un límite de peso. El usuario ingresa
+su peso y el piso al que desea ir. El programa debe verificar si el peso está dentro del límite
+permitido. Si es así, el ascensor se mueve al piso deseado. Si no, muestra un mensaje de que
+el ascensor está sobrecargado.*/
+            function tomar_datos() {
+                let pesoUsuario = parseFloat(prompt("Ingrese su peso en kilogramos:"));
+                let pisoDeseado = parseInt(prompt("Ingrese el piso al que desea ir (1-10):"));
+                procesar_datos(pesoUsuario, pisoDeseado);
+            }
+
+            function procesar_datos(pesoUsuario, pisoDeseado) {
+                const limitePeso = 300; 
+
+                if (pesoUsuario > limitePeso) {
+                    alert("El ascensor está sobrecargado. Por favor, reduzca el peso.");
+                } else if (pisoDeseado >= 1 && pisoDeseado <= 10) {
+                    imprimir_datos(pisoDeseado);
+                } else {
+                    alert("Error: El piso ingresado no es válido. Por favor, ingrese un número entre 1 y 10.");
+                }
+            }
+
+            function imprimir_datos(pisoDeseado) {
+                alert("El ascensor se está moviendo al piso " + pisoDeseado + ".");
+                console.log("Ascensor en movimiento al piso " + pisoDeseado + ".");
+            }
+
+            tomar_datos();
+        </script>
+    </body>
+</html>

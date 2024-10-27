@@ -1,0 +1,157 @@
+<html>
+    <head>
+        <title>pruebitas</title>
+        <style>
+            #texto {
+                color: black;
+                font-size: 20px;
+            }
+            .texto {
+                color: black;
+                font-size: 20px;
+            }
+            .color {
+                background-color: bisque;
+                border: 3px solid black;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="color">
+            <h1>DOM 1</h1>
+            <p>document.getElementById(id)</p>
+            <div>
+                <h1 id="titulo"></h1>
+                <p id="texto"></p>
+            </div>
+            <button onclick="validar_id()">concepto</button>
+        </div>
+
+        <div class="color">
+            <h1>DOM 2</h1>
+            <p>document.getElementsByClassName(classname)</p>
+            <div>
+                <h1 class="title"></h1>
+                <p class="textitoss"></p>
+            </div>
+            <button onclick="validar_classname()">concepto</button>
+        </div>
+
+        <div class="color">
+            <h1>DOM 3</h1>
+            <p>document.getElementsByTagName(tagname)</p>
+            <div>
+                <h2></h2>
+                <span></span>
+            </div>
+            <button onclick="validar_tagname()">concepto</button>
+        </div>
+
+        <div class="color">
+            <h1>DOM 4</h1>
+            <p>document.querySelector(selector)</p>
+            <div>
+                <h2 class="single-query1"></h2>
+                <p class="single-query"></p>
+            </div>
+            <button onclick="validar_selector()">concepto</button>
+        </div>
+
+        <div class="color">
+            <h1>DOM 5</h1>
+            <p>document.querySelectorAll(selector)</p>
+            <div>
+                <h2 class="all-query"></h2>
+                <p class="all-query"></p>
+            </div>
+            <button onclick="validar_selectorAll()">concepto</button>
+        </div>
+    </body>
+
+    <script>
+        function validar_id() {
+            typo = "id";
+            mostrartitulo(typo);
+        }
+
+        function validar_classname() {
+            typo = "classname";
+            mostrartitulo(typo);
+        }
+
+        function validar_tagname() {
+            typo = "tagname";
+            mostrartitulo(typo);
+        }
+
+        function validar_selector() {
+            typo = "selector";
+            mostrartitulo(typo);
+        }
+
+        function validar_selectorAll() {
+            typo = "selectorAll";
+            mostrartitulo(typo);
+        }
+
+        function mostrartitulo(typo) {
+            console.log(typo);
+            if (typo == "id") {
+                let elemento = document.getElementById("titulo");
+                if (elemento) {
+                    elemento.innerHTML = "¿Qué es?";
+                    mostrartexto(typo);
+                }
+            } else if (typo == "classname") {
+                let elemento1 = document.getElementsByClassName("title");
+                if (elemento1.length > 0) {
+                    elemento1[0].innerHTML = "¿Qué es?";
+                    mostrartexto(typo);
+                }
+            } else if (typo == "tagname") {
+                let elemento2 = document.getElementsByTagName("h2");
+                if (elemento2.length > 0) {
+                    elemento2[0].innerHTML = "¿Qué es?";
+                    mostrartexto(typo);
+                }
+            } else if (typo == "selector") {
+                let elemento3 = document.querySelector(".single-query1");
+                    elemento3.innerHTML = "¿Qué es?";
+                    mostrartexto(typo);
+            } else if (typo == "selectorAll") {
+                let elementos = document.querySelectorAll(".all-query");
+                    elementos[0].innerHTML = "¿Qué es?";
+                    mostrartexto(typo);
+                
+            }
+        }
+
+        function mostrartexto(typo) {
+            if (typo == "id") {
+                let elemento = document.getElementById("texto");
+                if (elemento) {
+                    elemento.innerHTML = "getElementById es un método de JavaScript que se utiliza para seleccionar un elemento del DOM basándose en su atributo id.";
+                }
+            } else if (typo == "classname") {
+                let elemento1 = document.getElementsByClassName("textitoss");
+                if (elemento1.length > 0) {
+                    elemento1[0].innerHTML = "getElementsByClassName es un método de JavaScript que se utiliza para seleccionar elementos basados en su clase.";
+                }
+            } else if (typo == "tagname") {
+                let elemento2 = document.getElementsByTagName("span");
+                if (elemento2.length > 0) {
+                    elemento2[0].innerHTML = "getElementsByTagName selecciona elementos basados en el nombre de su etiqueta.";
+                }
+            } else if (typo == "selector") {
+                let elemento3 = document.querySelector(".single-query");
+                if (elemento3) {
+                    elemento3.innerHTML = "querySelector es un método que devuelve el primer elemento que coincide con el selector CSS especificado.";
+                }
+            } else if (typo == "selectorAll") {
+                let elementos = document.querySelectorAll(".all-query");
+                    elementos[1].innerHTML = "querySelectorAll es un método que devuelve todos los elementos que coinciden con el selector CSS especificado.";
+                
+            }
+        }
+    </script>
+</html>

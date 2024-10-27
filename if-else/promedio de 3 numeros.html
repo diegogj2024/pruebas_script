@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>promedio</title>
+    </head>
+    <body>
+        <script>
+            function tomar_datos(){
+                let condicion = 0;
+                let contador = 0;
+                let operacion = 0;
+                while(condicion == 0){
+                    let num = parseInt(prompt("Ingrese un número entre 1 y 10"));
+                    if(num >= 1 && num <= 10){
+                        contador = contador + 1;
+                        operacion = operacion + num;
+                    } else {
+                        alert("Este número no es válido");
+                    }
+                    if(contador == 3){
+                        condicion = 1;
+                    }
+                }
+                procesar_datos(operacion);
+            }
+    
+            function procesar_datos(operacion){
+                let resultado = operacion / 3;
+                if(resultado>5){
+                    impresion=true
+                }
+                else{
+                    impresion=false
+                }
+                imprimir(impresion);
+            }
+    
+            function imprimir(impresion){
+                alert(impresion);
+                console.log(impresion);
+            }
+    
+            tomar_datos();
+        </script>
+    </body>
+</html>

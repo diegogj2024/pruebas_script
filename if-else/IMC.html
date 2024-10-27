@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Calculadora de IMC</title>
+    </head>
+    <body>
+        <script>
+            /*Escribe un programa que calcule el índice de masa corporal (IMC) de una persona y le muestre un mensaje según el rango en el que se encuentre. Los requerimientos son: Solicitar al usuario su peso en kilogramos.
+            Solicitar al usuario su altura en metros.
+            Calcular el IMC utilizando la fórmula: IMC = peso / (altura * altura).
+            Mostrar un mensaje según el IMC:
+            IMC < 18.5: "Bajo peso".
+            18.5 <= IMC < 25: "Peso normal".
+            25 <= IMC < 30: "Sobrepeso".
+            IMC >= 30: "Obesidad".*/
+            function tomar_datos() {
+                let peso = parseFloat(prompt("Ingrese su peso en kilogramos:"));
+                let altura = parseFloat(prompt("Ingrese su altura en metros:"));
+                procesar_datos(peso, altura);
+            }
+
+            function procesar_datos(peso, altura) {
+                let imc = peso / (altura * altura);
+                imprimir_datos(imc);
+            }
+
+            function imprimir_datos(imc) {
+                let mensaje;
+                if (imc < 18.5) {
+                    mensaje = "Bajo peso";
+                } else if (imc >= 18.5 && imc < 25) {
+                    mensaje = "Peso normal";
+                } else if (imc >= 25 && imc < 30) {
+                    mensaje = "Sobrepeso";
+                } else {
+                    mensaje = "Obesidad";
+                }
+                alert("Tu IMC es: " + imc.toFixed(2) + ". " + mensaje);
+                console.log("IMC: " + imc.toFixed(2) + ", Estado: " + mensaje);
+            }
+
+            tomar_datos();
+        </script>
+    </body>
+</html>

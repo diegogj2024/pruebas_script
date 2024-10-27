@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sensor de Temperatura con Alerta</title>
+    </head>
+    <body>
+        <script>
+            /*Escribe un programa que simule un sensor de temperatura ambiente y un umbral de alerta. El
+usuario ingresa la temperatura actual, y el programa verifica si la temperatura está por encima
+del umbral de alerta. Si es así, muestra un mensaje de alerta. Si no, muestra un mensaje de
+que la temperatura es normal.*/
+            function tomar_datos() {
+                let temperaturaActual = parseFloat(prompt("Ingrese la temperatura actual en °C:"));
+                let umbralAlerta = parseFloat(prompt("Ingrese el umbral de alerta en °C:"));
+                procesar_datos(temperaturaActual, umbralAlerta);
+            }
+
+            function procesar_datos(temperaturaActual, umbralAlerta) {
+                if (temperaturaActual > umbralAlerta) {
+                    imprimir_datos("¡Alerta! La temperatura está por encima del umbral de alerta.");
+                } else {
+                    imprimir_datos("La temperatura es normal.");
+                }
+            }
+
+            function imprimir_datos(mensaje) {
+                alert(mensaje);
+                console.log(mensaje);
+            }
+
+            tomar_datos();
+        </script>
+    </body>
+</html>

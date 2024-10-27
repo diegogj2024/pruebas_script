@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>numero mayor</title>
+    </head>
+    <body>
+        <script>
+            /*Pedir dos números y decir cual es el mayor*/
+            function tomar_datos(){
+            num=parseInt(prompt("ingrese un numero"));
+            num2=parseInt(prompt("ingrese otro numero"));
+            procesar_datos(num,num2);
+        }
+
+        function procesar_datos(num,num2){
+            if (num>num2){
+              resultado="el numero:"+" "+num+" "+"es mayor que:"+" "+num2;
+            }
+            else if(num<num2){
+                resultado="el numero:"+" "+num2+" "+"es mayor que:"+" "+num;
+            }
+            else{
+                resultado="el numero:"+" "+num+" "+"es igual que:"+" "+num2;
+            }
+            imprimir(resultado)
+        }
+
+        function imprimir(resultado){
+            alert(resultado);
+            console.log(resultado);
+        }
+
+        tomar_datos()
+    </script>
+    </body>
+</html>

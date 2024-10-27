@@ -1,0 +1,58 @@
+<html lang="es">
+    <head>
+        <title>categoria edad</title>
+    </head>
+    <body>
+        <script>
+            /*Categorías de edad: Solicita al usuario que ingrese su edad. para determinar en qué
+categoría de edad se encuentra (niño, adolescente, adulto, adulto mayor) y muestra un
+mensaje acorde.*/
+            function tomar_datos(){
+                var edad=0;
+                var tipo=" ";
+                var edad=parseInt(prompt("Ingrese su edad"));
+                procesar(edad)
+            }
+
+            function procesar(edad){
+                let resultado;
+                if (edad<12){
+                    tipo="niño"
+                }
+                if (edad>12 && edad <18){
+                    tipo="Adolescente"
+                }
+                if (edad>18 && edad<30){
+                    tipo="Adulto"
+                }if (edad>30){
+                    tipo="Adulto Mayor"
+                }
+            
+                switch(tipo){
+                    case "niño":
+                        resultado="Usted pertenece a categoria Niño";
+                        break;
+                    case "Adolescente":
+                        resultado="Usted pertenece a categoria Adolescente";
+                        break;
+                    case "Adulto":
+                        resultado="Usted pertenece a categoria Adulto";
+                        break;
+                    case "Adulto Mayor":
+                        resultado="Usted pertenece a categoria Adulto Mayor";
+                        break;
+                    default:
+                        resultado="Error, ingrese los datos correctamente";
+                        break;
+                }
+                imprimir(resultado);
+            }
+
+            function imprimir(resultado){
+                alert("el resultado es"+resultado)
+                console.log("el resultado es"+resultado)
+            }
+            tomar_datos()
+        </script>
+    </body>
+</html>
