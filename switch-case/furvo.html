@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <title>Sistema de Clasificación Deportiva</title>
+    </head>
+    <body>
+        <script>
+        /*Crea un programa que simule un sistema de clasificación para un campeonato deportivo. El
+programa debe solicitar al usuario que ingrese el resultado de un partido (ganado, perdido o
+empatado) y, según el resultado, otorgar puntos a los equipos y mostrar la clasificación actual.*/
+            function tomarDatos() {
+                let resultado = prompt("Ingresa el resultado del partido (ganado, perdido, empatado):").toLowerCase();
+
+                if (!["ganado", "perdido", "empatado"].includes(resultado)) {
+                    alert("Por favor, ingresa un resultado válido: ganado, perdido o empatado.");
+                    return;
+                }
+                procesar_datos(resultado);
+            }
+
+            function procesar_datos(resultado) {
+                let puntosEquipoA=0
+                let puntosEquipoB=0
+
+                switch (resultado) {
+                    case "ganado":
+                        puntosEquipoA += 3;
+                        alert("El Equipo A ha ganado el partido.");
+                        break;
+                    case "perdido":
+                        puntosEquipoB += 3;
+                        alert("El Equipo B ha ganado el partido.");
+                        break;
+                    case "empatado":
+                        puntosEquipoA += 1;
+                        puntosEquipoB += 1;
+                        alert("El partido ha terminado en empate.");
+                        break;
+                }
+
+                imprimir(puntosEquipoA,puntosEquipoB);
+            }
+
+            function imprimir(puntosEquipoA,puntosEquipoB) {
+                let clasificacion = `Clasificación Actual:\n`;
+                clasificacion += `Equipo A: ${puntosEquipoA} puntos\n`;
+                clasificacion += `Equipo B: ${puntosEquipoB} puntos\n`;
+                alert(clasificacion);
+                console.log(clasificacion);
+            }
+
+            tomarDatos();
+        </script>
+    </body>
+</html>

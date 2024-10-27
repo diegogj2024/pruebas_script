@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <title>Tienda de Productos</title>
+    </head>
+    <body>
+        <script>
+            /*En una tienda se venden tres tipos de productos: "A" (alimentos), "V" (vestimenta) y "E"
+(electrónicos). Cada producto tiene un precio base diferente. Escribe un programa en que solicite
+al cliente el tipo de producto que desea comprar (A, V o E) y la cantidad de unidades. Para
+calcular el costo total de la compra. Si el cliente compra productos de tipo "A", obtiene un 10%
+de descuento. Si compra productos de tipo "V", obtiene un 5% de descuento. Si compra
+productos de tipo "E", no hay descuento. Finalmente, muestra el costo total de la compra con el
+descuento aplicado y el costo sin descuento. Asegúrate de validar que la cantidad de unidades
+sea un número positivo.*/
+            function tomarDatos() {
+                let tipoProducto = prompt("Ingresa el tipo de producto (A para alimentos, V para vestimenta, E para electronicos):").toUpperCase();
+                let cantidad = parseInt(prompt("Ingresa la cantidad de unidades:"));
+                if (!["A", "V", "E"].includes(tipoProducto)) {
+                    alert("Tipo de producto inválido. Debe ser A, V o E.");
+                    return;
+                }
+                if (isNaN(cantidad) || cantidad <= 0) {
+                    alert("La cantidad de unidades debe ser un número positivo.");
+                    return;
+                }
+
+                procesarDatos(tipoProducto, cantidad);
+            }
+
+            function procesarDatos(tipoProducto, cantidad) {
+                let precioBase;
+                let descuento = 0;
+                let costoSinDescuento, costoConDescuento;
+
+                switch (tipoProducto) {
+                    case "A":
+                        precioBase = 100;
+                        descuento = 0.10;
+                        break;
+                    case "V":
+                        precioBase = 200;
+                        descuento = 0.05;
+                        break;
+                    case "E":
+                        precioBase = 300;
+                        descuento = 0;
+                        break;
+                }
+
+                costoSinDescuento = precioBase * cantidad;
+                costoConDescuento = costoSinDescuento * (1 - descuento);
+                imprimirResultados(costoSinDescuento, costoConDescuento);
+            }
+
+            function imprimirResultados(costoSinDescuento, costoConDescuento) {
+                alert("Costo sin descuento: $" + costoSinDescuento.toFixed(2) + "\n" +
+                      "Costo con descuento: $" + costoConDescuento.toFixed(2));
+                console.log("Costo sin descuento: $" + costoSinDescuento.toFixed(2));
+                console.log("Costo con descuento: $" + costoConDescuento.toFixed(2));
+            }
+
+            tomarDatos();
+        </script>
+    </body>
+</html>
