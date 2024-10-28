@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <title>Asistente Virtual de Cine</title>
+    </head>
+    <body>
+        <script>
+            /*Desarrolla un programa que simule un asistente virtual para un cine. El programa debe solicitar
+al usuario que ingrese su edad y, en función de la edad, recomendar una película adecuada:
+Niños (Edad menor a 7 años): Recomendará películas animadas y educativas aptas para todas
+las edades. Niños y Adolescentes (Edad entre 7 y 17 años): Sugerirá películas adecuadas para la
+familia, como animaciones, aventuras y comedias familiares. Adultos (Edad entre 18 y 30 años):
+Ofrecerá una variedad de géneros, como acción, drama, comedia y ciencia ficción. Personas
+Mayores (Edad mayor a 31 años): Recomendará películas clásicas y dramas que pueden ser de
+su interés.*/
+            function tomarDatos() {
+                let edad = parseInt(prompt("Ingresa tu edad:"));
+                if (isNaN(edad) || edad < 0) {
+                    alert("Por favor, ingresa una edad válida.");
+                    return;
+                }
+                procesar_datos(edad);
+            }
+
+            function procesar_datos(edad) {
+                let recomendacion;
+                switch (true) {
+                    case (edad < 7):
+                        recomendacion = "Te recomendamos películas animadas y educativas aptas para todas las edades.";
+                        break;
+                    case (edad >= 7 && edad <= 17):
+                        recomendacion = "Te sugerimos películas adecuadas para la familia, como animaciones, aventuras y comedias familiares.";
+                        break;
+                    case (edad >= 18 && edad <= 30):
+                        recomendacion = "Te ofrecemos una variedad de géneros, como acción, drama, comedia y ciencia ficción.";
+                        break;
+                    case (edad > 30):
+                        recomendacion = "Te recomendamos películas clásicas y dramas que pueden ser de tu interés.";
+                        break;
+                    default:
+                        recomendacion = "Error en la recomendación.";
+                        break;
+                }
+                imprimirResultados(recomendacion);
+            }
+
+            function imprimirResultados(recomendacion) {
+                alert(recomendacion);
+                console.log("Recomendación: " + recomendacion);
+            }
+
+            tomarDatos();
+        </script>
+    </body>
+</html>

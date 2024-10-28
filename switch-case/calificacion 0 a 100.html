@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <title>calificacion 0 a 100</title>
+    </head>
+    <body>
+        <script>
+            /*Pide al usuario que ingrese una calificación numérica del 0 al 100. Para mostrar un
+mensaje dependiendo del rango de calificación (A, B, C, D, F).*/
+            function tomar_datos(){
+                var numero=parseInt(prompt("ingrese un numero del 0 al 100"))
+                procesar_datos(numero)
+            }
+
+            function procesar_datos(numero){
+                let resultado;
+                switch (true) {
+                    case numero === 100:
+                        resultado = "A";
+                        break;
+                    case numero >= 80 && numero < 100:
+                        resultado = "B";
+                        break;
+                    case numero >= 60 && numero < 80:
+                        resultado = "C";
+                        break;
+                    case numero >= 40 && numero < 60:
+                        resultado = "D";
+                        break;
+                    default:
+                        resultado = "F";
+                        break;
+                }
+                imprimir(resultado)
+            }
+
+            function imprimir(resultado){
+                alert(resultado)
+                console.log(resultado)
+            }
+
+            tomar_datos()
+        </script>
+    </body>
+</html>
+

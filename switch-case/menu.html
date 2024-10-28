@@ -1,0 +1,79 @@
+<html>
+<head>
+    <title>Menú del Restaurante</title>
+</head>
+<body>
+    <script>
+        const menu = {
+            platos: {
+                "1": { nombre: "Pizza", precio: 10 },
+                "2": { nombre: "Pasta", precio: 12 },
+                "3": { nombre: "Ensalada", precio: 8 },
+                "4": { nombre: "Sopa", precio: 6 }
+            },
+            bebidas: {
+                "1": { nombre: "Agua", precio: 2 },
+                "2": { nombre: "Refresco", precio: 3 },
+                "3": { nombre: "Cerveza", precio: 4 },
+                "4": { nombre: "Vino", precio: 6 }
+            }
+        };
+
+        function tomarPedido() {
+            let total = 0;
+            let seleccionPlatos = [];
+            let seleccionBebidas = [];
+            alert("Seleccione los platos:\n1. Pizza - $10\n2. Pasta - $12\n3. Ensalada - $8\n4. Sopa - $6");
+            let platosSeleccionados = prompt("Ingrese los números de los platos seleccionados separados por comas (ej: 1,2):");
+            if (platosSeleccionados) {
+                let numerosPlatos = platosSeleccionados.split(",").map(num => num.trim());
+                for (let num of numerosPlatos) {
+                    if (menu.platos[num]) {
+                        seleccionPlatos.push(menu.platos[num].nombre);
+                        total += menu.platos[num].precio;
+                    }
+                }
+            }
+            alert("Seleccione las bebidas:\n1. Agua - $2\n2. Refresco - $3\n3. Cerveza - $4\n4. Vino - $6");
+            let bebidasSeleccionadas = prompt("Ingrese los números de las bebidas seleccionadas separados por comas (ej: 1,2):");
+            if (bebidasSeleccionadas) {
+                let numerosBebidas = bebidasSeleccionadas.split(",").map(num => num.trim());
+                for (let num of numerosBebidas) {
+                    if (menu.bebidas[num]) {
+                        seleccionBebidas.push(menu.bebidas[num].nombre);
+                        total += menu.bebidas[num].precio;
+                    }
+                }
+            }
+            let metodoPago = prompt("Ingrese el método de pago (efectivo, tarjeta de crédito, cheque):").toLowerCase();
+            let descuento = 0;
+            switch (metodoPago) {
+                case "efectivo":
+                    descuento = total * 0.10;
+                    break;
+                case "tarjeta de crédito":
+                    descuento = total * 0.05;
+                    break;
+                case "cheque":
+                    break;
+                default:
+                    alert("Método de pago no válido. No se aplicará descuento.");
+                    break;
+            }
+            total -= descuento;
+            mostrarResumen(seleccionPlatos, seleccionBebidas, total);
+        }
+
+        function mostrarResumen(platos, bebidas, total) {
+            let resumen = "Resumen de su pedido:\n\n";
+            resumen += "Platos seleccionados: " + (platos.length > 0 ? platos.join(", ") : "Ninguno") + "\n";
+            resumen += "Bebidas seleccionadas: " + (bebidas.length > 0 ? bebidas.join(", ") : "Ninguna") + "\n";
+            resumen += "Costo total: $" + total.toFixed(2) + "\n";
+            alert(resumen);
+            console.log(resumen);
+        }
+
+        tomarPedido();
+    </script>
+</body>
+</html>
