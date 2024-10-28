@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>lista de numeros</title>
+    </head>
+    <body>
+        <script>
+            /*- Escribir un programa que pregunte al usuario su edad y muestre por pantalla todos los años
+que ha cumplido (desde 1 hasta su edad).*/
+            function tomar_datos(){
+                let numero1=parseInt(prompt("ingrese un numero"));
+                let numero2=parseInt(prompt("ingrese un numero"));
+                let numero3=parseInt(prompt("ingrese un numero"));
+                let numero4=parseInt(prompt("ingrese un numero"));
+                let numero5=parseInt(prompt("ingrese un numero"));
+                lista=[numero1,numero2,numero3,numero4,numero5]
+                procesar_datos(lista);
+            }
+            function procesar_datos(lista){
+                let suma = 0;
+                for (let i = 0; i < lista.length; i++) {
+                    suma += lista[i];
+                }
+                imprimir(suma)
+            }
+            function imprimir(suma){
+                alert(suma);
+                console.log(suma);
+            }
+        tomar_datos()
+        </script>
+    </body>
+</html>
