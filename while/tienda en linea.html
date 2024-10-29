@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tienda en Línea</title>
+</head>
+<body>
+    <script>
+        function solicitarProducto() {
+            let precio = parseFloat(prompt("Ingrese el precio del producto:"));
+            let cantidad = parseInt(prompt("Ingrese la cantidad que desea comprar:"));
+            if (isNaN(precio) || precio < 0 || isNaN(cantidad) || cantidad < 1) {
+                alert("Error: Debe ingresar un precio válido (número positivo) y una cantidad válida (número entero positivo).");
+                return null;
+            }
+            return { precio, cantidad };
+        }
+
+        function calcularCostoTotal(productos) {
+            let total = 0;
+            for (let producto of productos) {
+                total += producto.precio * producto.cantidad;
+            }
+            return total;
+        }
+
+        function iniciarCompra() {
+            let productos = [];
+            let continuar = true;
+
+            while (continuar) {
+                let producto = solicitarProducto();
+                if (producto) {
+                    productos.push(producto);
+                }
+                let respuesta = prompt("¿Desea agregar otro producto? (si/no)").toLowerCase();
+                if (respuesta !== "si") {
+                    continuar = false;
+                }
+            }
+            let totalCompra = calcularCostoTotal(productos);
+            alert("El costo total de su compra es: $" + totalCompra.toFixed(2));
+        }
+
+        iniciarCompra();
+    </script>
+</body>
+</html>

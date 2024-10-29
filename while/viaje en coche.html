@@ -19,7 +19,6 @@
             return distancia;
         }
 
-
         function obtenerVelocidad() {
             let velocidad = parseFloat(prompt("Ingrese la velocidad promedio del coche en km/h:"));
             while (isNaN(velocidad) || velocidad <= 0) {
@@ -42,10 +41,10 @@
 
                 let tiempo = calcularTiempo(distancia, velocidad);
                 let horas = Math.trunc(tiempo);
-                let minutos = (tiempo - horas) * 60;
-
+                let minutos = Math.round((tiempo - horas) * 60);
                 document.getElementById("resultado").innerHTML += 
-                    <p>Para un viaje de ${distancia} km a una velocidad de ${velocidad} km/h, el tiempo estimado de viaje es de ${horas} horas y ${Math.trunc(minutos)} minutos.</p>;
+                    `<p>Para un viaje de ${distancia} km a una velocidad de ${velocidad} km/h, el tiempo estimado de viaje es de ${horas} horas y ${minutos} minutos.</p>`;
+                
                 continuar = confirm("¿Desea simular otro viaje?");
             }
         }
