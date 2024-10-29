@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculador de Promedios</title>
+</head>
+<body>
+    <script>
+        let notas = [];
+
+        function tomarDatos() {
+            console.log("Bienvenido al calculador de promedios");
+            let resultado;
+            do {
+                let nota = parseFloat(prompt("Ingrese su calificación:"));
+                
+                if (nota < 1) {
+                    alert("Número inválido");
+                    resultado = 1; // Seguir pidiendo notas
+                } else {
+                    notas.push(nota);
+                    resultado = parseInt(prompt("¿Desea ingresar alguna otra nota? Si: 1, No: 0"));
+                }
+            } while (resultado !== 0);
+            procesarDatos()
+        }
+
+        function procesarDatos() {
+            let acum = notas.reduce((sum, nota) => sum + nota, 0);
+            let suma = notas.length;
+            let promedio=acum / suma;
+            imprimir(promedio)
+        }
+
+        function imprimir(promedio) {
+            if (promedio > 3.5) {
+                alert("¡Felicitaciones, aprobaste! Promedio: " + promedio.toFixed(2));
+                console.log("¡Felicitaciones, aprobaste! Promedio: " + promedio.toFixed(2));
+            } else {
+                alert("No aprobaste. Promedio: " + promedio.toFixed(2));
+                console.log("No aprobaste. Promedio: " + promedio.toFixed(2));
+            }
+        }
+
+        tomarDatos();
+    </script>
+</body>
+</html>

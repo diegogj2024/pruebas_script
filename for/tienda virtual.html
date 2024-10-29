@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tienda Virtual</title>
+    </head>
+    <body>
+        <script>
+            let productos = [];
+            let totalPrecio = 0;
+
+            function tomarDatos() {
+                let cantidadProductos = parseFloat(prompt("cuantos productos desea comprar"));
+
+                if (isNaN(cantidadProductos) || cantidadProductos < 1) {
+                    console.log("Error: Numero invalido");
+                    cantidadProductos = 0;
+                }
+
+                for (let i = 0; i < cantidadProductos; i++) {
+                    let nombreProducto = prompt(`Ingrese el nombre del producto ${i + 1}:`);
+                    let precio = parseFloat(prompt("Ingrese el precio del producto:"));
+
+                    if (!isNaN(precio) && precio >= 0) {
+                        productos.push({ nombre: nombreProducto, precio: precio });
+                        totalPrecio += precio;
+                    } else {
+                        console.log("Error: Precio invalido para " + nombreProducto);
+                    }
+                }
+                procesarDatos();
+            }
+
+            function procesarDatos() {
+                let nombres = productos.map(producto => producto.nombre).join(", ");
+                imprimirDatos({ nombres, totalPrecio });
+            }
+
+            function imprimirDatos(datosProcesados) {
+                alert("Los productos comprados son: " + datosProcesados.nombres);
+                alert("El costo total de los productos es de: " + datosProcesados.totalPrecio);
+                console.log("Los productos comprados son: " + datosProcesados.nombres);
+                console.log("El costo total de los productos es de: " + datosProcesados.totalPrecio);
+            }
+
+            tomarDatos();
+        </script>
+    </body>
+</html>

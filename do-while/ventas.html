@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registrador de Productos</title>
+</head>
+<body>
+    <script>
+        function tomarDatos() {
+            let productos = [];
+            let total = 0;
+            alert("Bienvenido al registrador de productos")
+            console.log("Bienvenido al registrador de productos");
+            let resultado;
+            do {
+                let producto = prompt("Ingrese el nombre del producto:");
+                let precio = parseFloat(prompt("Ingrese el precio:"));
+
+                if (precio > 1) {
+                    productos.push({ nombre: producto, precio: precio });
+                    total += precio;
+
+                    resultado = parseInt(prompt("¿Desea agregar más productos? Si: 1, No: 0"));
+                } else {
+                    alert("Ingrese un precio válido.");
+                    resultado = 1;
+                }
+            } while (resultado !== 0);
+            imprimir(productos,total)
+        }
+
+        function imprimir(productos,total) {
+            let listaProductos = productos.map(producto => `${producto.nombre} ($${producto.precio.toFixed(2)})`).join(', ');
+            alert("Los productos registrados fueron: " + listaProductos);
+            console.log("Los productos registrados fueron: " + listaProductos);
+            alert("El costo total es: $" + total.toFixed(2))
+            console.log("El costo total es: $" + total.toFixed(2));
+        }
+
+        tomarDatos();
+    </script>
+</body>
+</html>

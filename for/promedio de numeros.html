@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>promedio</title>
+    </head>
+    <body>
+        <script>
+            /*-Calcular la sumatoria y el promedio de un rango de números indicados por el usuario e
+imprimir los resultados en consola.*/
+            function tomar_datos(){
+                let numero1=parseInt(prompt("ingrese un numero para calcular el promedio"));
+                procesar_datos(numero1);
+            }
+            function procesar_datos(numero){
+                let acumulador=0;
+                for(let i=0;i<=numero;i++){
+                    acumulador=acumulador+i;
+                    console.log(acumulador)
+                }
+                resultado=acumulador/numero;
+                imprimir(resultado)
+            }
+            function imprimir(resultado){
+                alert(resultado);
+                console.log(resultado);
+            }
+        tomar_datos()
+        </script>
+    </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Años Cumplidos</title>
+</head>
+<body>
+    <script>
+        function pedirEdad() {
+            let edad = parseInt(prompt("Ingrese su edad:"));
+            if (isNaN(edad) || edad < 1) {
+                alert("Error: Debe ingresar una edad válida (número entero positivo).");
+                return null;
+            }
+            return edad;
+        }
+
+        function mostrarAñosCumplidos(edad) {
+            let añosCumplidos = "";
+            let i = 1;
+            while (i <= edad) {
+                añosCumplidos += i + " ";
+                i++;
+            }
+            return añosCumplidos.trim();
+        }
+
+        function main() {
+            let edad = pedirEdad();
+            if (edad !== null) {
+                let años = mostrarAñosCumplidos(edad);
+                alert("Los años que has cumplido son: " + años);
+            }
+        }
+
+        main();
+    </script>
+</body>
+</html>

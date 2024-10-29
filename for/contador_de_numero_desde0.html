@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>contador desde 0</title>
+    </head>
+    <body>
+        <script>
+            /*- Pedir un numero e imprimir los números del cero al solicitado imprimir en la consola.*/
+            function tomar_datos(){
+                let numero=parseInt(prompt("ingrese un numero para iniciar el contador"));
+                procesar_datos(numero);
+            }
+            function procesar_datos(numero){
+                for(let i=0;i<=numero;i++){
+                    imprimir(i);
+                }
+            }
+            function imprimir(i){
+                alert(i)
+                console.log(i)
+            }
+        tomar_datos()
+        </script>
+    </body>
+</html>

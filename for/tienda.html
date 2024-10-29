@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <title>tienda</title>
+    </head>
+    <body>
+        <script>
+            function tomarDatos() {
+            let cantidadDeProductos = parseInt(prompt("Ingrese la cantidad de productos a registrar:"));
+            
+            if (cantidadDeProductos < 1) {
+                console.log("Error: la cantidad de productos debe ser al menos 1.");
+                return null;
+            }
+    
+            let productos = [];
+        
+            for (let i = 1; i <= cantidadDeProductos; i++) {
+                let nombreProducto = prompt("Ingrese el nombre del producto " + i + ":");
+                let precio = parseFloat(prompt("Ingrese el precio del producto:"));
+                let cantidad = parseInt(prompt("Ingrese la cantidad:"));
+        
+                productos.push({ nombre: nombreProducto, precio: precio, cantidad: cantidad });
+            }
+        
+            return productos;
+        }
+        
+        function procesarDatos(productos) {
+            let total = 0;
+            let nombres = "";
+        
+            for (let producto of productos) {
+                nombres += producto.nombre + ", ";
+                total += producto.precio * producto.cantidad;
+            }
+        
+            return { nombres: nombres.slice(0, -2), total: total };
+        }
+        
+        function imprimirResultados(resultado) {
+            alert("Los productos comprados fueron: " + resultado.nombres);
+            alert("El total a pagar es de: " + resultado.total)
+            console.log("Los productos comprados fueron: " + resultado.nombres);
+            console.log("El total a pagar es de: " + resultado.total);
+        }
+        const productos = tomarDatos();
+        
+        if (productos) {
+            const resultado = procesarDatos(productos);
+            imprimirResultados(resultado);
+        }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>parqueadero</title>
+    </head>
+    <body>
+        <script>
+            
+        let vehiculos = [];
+
+        function tomarDatos() {
+            let numeroVehiculos = parseInt(prompt("Ingrese el numero de vehiculos que ingresan:"));
+    
+            for (let i = 0; i < numeroVehiculos; i++) {
+            let placa = prompt(`Ingrese la placa del vehiculo ${i + 1}:`);
+            let hora = prompt("Ingrese la hora de ingreso en formato de 24 horas:");
+            vehiculos.push({ placa: placa, hora: hora });
+            }
+            procesarDatos(vehiculos)
+        }
+
+        function procesarDatos() {
+            let placas = vehiculos.map(vehiculo => vehiculo.placa).join(", ");
+            let horas = vehiculos.map(vehiculo => vehiculo.hora).join(", ");
+            imprimirDatos({placas,horas})
+        }
+
+        function imprimirDatos(datosProcesados) {
+            alert("Los vehiculos registrados son: " + datosProcesados.placas);
+            alert("Hora de ingreso: " + datosProcesados.horas);
+            console.log("Los vehiculos registrados son: " + datosProcesados.placas);
+            console.log("Hora de ingreso: " + datosProcesados.horas);
+        }
+
+    tomarDatos();
+        </script>
+    </body>
+</html>

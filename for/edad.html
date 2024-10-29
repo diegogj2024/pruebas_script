@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>edad</title>
+    </head>
+    <body>
+        <script>
+            /*- Escribir un programa que pregunte al usuario su edad y muestre por pantalla todos los años
+que ha cumplido (desde 1 hasta su edad).*/
+            function tomar_datos(){
+                let numero1=parseInt(prompt("ingrese su edad"));
+                procesar_datos(numero1);
+            }
+            function procesar_datos(numero){
+                for(let i=1;i<=numero;i++){
+                imprimir(i)
+                }
+            }
+            function imprimir(i){
+                alert(i);
+                console.log(i);
+            }
+        tomar_datos()
+        </script>
+    </body>
+</html>

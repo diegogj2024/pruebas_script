@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>factorial</title>
+    </head>
+    <body>
+        <script>
+            /*- Calcular el factorial de un número dado por el usuario desde el teclado .*/
+            function tomar_datos(){
+                let numero1=parseInt(prompt("ingrese un numero para calcular la factorial"));
+                procesar_datos(numero1);
+            }
+            function procesar_datos(numero){
+                let factorial=1;
+                for(let i=1;i<=numero;i++){
+                factorial *= i;
+                }
+                imprimir(factorial);
+            }
+            function imprimir(resultado){
+                alert(resultado);
+                console.log(resultado);
+            }
+        tomar_datos()
+        </script>
+    </body>
+</html>
