@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Menú Restaurante</title>
+</head>
+<body>
+    <script>
+        let total = 0;
+        let platosSeleccionados = [];
+        let bebidasSeleccionadas = [];
+
+        function tomarDatos() {
+            let subtotalPlatos = seleccionarPlatos();
+            let subtotalBebidas = seleccionarBebidas();
+            total = subtotalPlatos + subtotalBebidas;
+        }
+
+        function seleccionarPlatos() {
+            let subtotalPlatos = 0;
+            let plato;
+
+            do {
+                plato = parseInt(prompt("Seleccione un plato (1: pastas, 2: milanesa, 3: carne a la plancha, 4: sopa, 0: Terminar pedido): "));
+                
+                switch (plato) {
+                    case 1:
+                        subtotalPlatos += 20000;
+                        platosSeleccionados.push("Pastas");
+                        break;
+                    case 2:
+                        subtotalPlatos += 30000;
+                        platosSeleccionados.push("Milanesa");
+                        break;
+                    case 3:
+                        subtotalPlatos += 24000;
+                        platosSeleccionados.push("Carne a la plancha");
+                        break;
+                    case 4:
+                        subtotalPlatos += 18000;
+                        platosSeleccionados.push("Sopa");
+                        break;
+                    case 0:
+                        alert("Usted decidió terminar el pedido.")
+                        console.log("Usted decidió terminar el pedido.");
+                        break;
+                    default:
+                        alert("Error, ingrese una opción válida.")
+                        console.log("Error, ingrese una opción válida.");
+                }
+            } while (plato !== 0);
+            
+            return subtotalPlatos;
+        }
+
+        function seleccionarBebidas() {
+            let subtotalBebidas = 0;
+            let bebida;
+
+            do {
+                bebida = parseInt(prompt("Seleccione una bebida (1: Coca-Cola, 2: malteada, 3: jugo de fresa, 4: agua, 0: Terminar pedido): "));
+                
+                switch (bebida) {
+                    case 1:
+                        subtotalBebidas += 2500;
+                        bebidasSeleccionadas.push("Coca-Cola");
+                        break;
+                    case 2:
+                        subtotalBebidas += 5000;
+                        bebidasSeleccionadas.push("Malteada");
+                        break;
+                    case 3:
+                        subtotalBebidas += 6000;
+                        bebidasSeleccionadas.push("Jugo de fresa");
+                        break;
+                    case 4:
+                        subtotalBebidas += 1200;
+                        bebidasSeleccionadas.push("Agua");
+                        break;
+                    case 0:
+                        alert("Usted decidió terminar el pedido.")
+                        console.log("Usted decidió terminar el pedido.");
+                        break;
+                    default:
+                        alert("Bebida inválida, seleccione una opción válida.")
+                        console.log("Bebida inválida, seleccione una opción válida.");
+                }
+            } while (bebida !== 0);
+            
+            return subtotalBebidas;
+        }
+
+        function imprimirResultado() {
+            alert("Gracias por comprar")
+            alert("El total a pagar es: " + total)
+            alert("Platos seleccionados: " + platosSeleccionados.join(", "))
+            alert("Bebidas seleccionadas: " + bebidasSeleccionadas.join(", "))
+            console.log("Gracias por comprar");
+            console.log("El total a pagar es: " + total);
+            console.log("Platos seleccionados: " + platosSeleccionados.join(", "));
+            console.log("Bebidas seleccionadas: " + bebidasSeleccionadas.join(", "));
+        }
+
+        tomarDatos();
+        imprimirResultado();
+    </script>
+</body>
+</html>

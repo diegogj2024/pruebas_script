@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Agenda de Numeros</title>
+    </head>
+    <body>
+        <script>
+            let contactos = [];
+
+            function tomarDatos() {
+                let cantidadContactos = parseInt(prompt("Ingrese la cantidad de numeros a agregar en la agenda:"));
+
+                if (isNaN(cantidadContactos) || cantidadContactos < 1) {
+                    console.log("Error: Numero invalido");
+                    cantidadContactos = 0;
+                }
+
+                for (let i = 0; i < cantidadContactos; i++) {
+                    let nombreContacto = prompt(`Ingrese el nombre del contacto ${i + 1}:`);
+                    let numeroTelefono = prompt("Ingrese el numero de telefono:");
+                    
+                    contactos.push({ nombre: nombreContacto, telefono: numeroTelefono });
+                }
+
+                procesarDatos();
+            }
+
+            function procesarDatos() {
+                let nombres = contactos.map(contacto => contacto.nombre).join(", ");
+                let numeros = contactos.map(contacto => contacto.telefono).join(", ");
+                imprimirDatos({ nombres, numeros });
+            }
+
+            function imprimirDatos(datosProcesados) {
+                alert("El nombre de los contactos es: " + datosProcesados.nombres);
+                alert("Los numeros son: " + datosProcesados.numeros);
+                console.log("El nombre de los contactos es: " + datosProcesados.nombres);
+                console.log("Los numeros son: " + datosProcesados.numeros);
+            }
+
+            tomarDatos();
+        </script>
+    </body>
+</html>

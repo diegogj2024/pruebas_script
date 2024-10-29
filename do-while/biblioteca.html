@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registro de Biblioteca</title>
+</head>
+<body>
+    <script>
+        let libros = [];
+        let autores = [];
+        let paginas = [];
+
+        function tomarDatos() {
+            console.log("Bienvenido al registro de biblioteca");
+            let resultado;
+
+            do {
+                resultado = parseInt(prompt("¿Desea registrar algún libro? Si: 1, No: 0"));
+
+                if (resultado === 1) {
+                    let libro = prompt("Ingrese el nombre del libro:");
+                    let autor = prompt("Ingrese el autor:");
+                    let paginasCount = parseInt(prompt("Ingrese la cantidad de páginas:"));
+
+                    if (paginasCount < 1) {
+                        console.log("Error: número de páginas inválido.");
+                    } else {
+                        libros.push(libro);
+                        autores.push(autor);
+                        paginas.push(paginasCount);
+                    }
+                }
+            } while (resultado !== 0);
+            imprimir()
+        }
+
+        function imprimir() {
+            alert("Los libros registrados son: " + libros.join(', '));
+            alert("Los autores de estos libros son: " + autores.join(', '));
+            alert("Las cantidades de páginas de estos libros son: " + paginas.join(', '));
+            console.log("Los libros registrados son: " + libros.join(', '));
+            console.log("Los autores de estos libros son: " + autores.join(', '));
+            console.log("Las cantidades de páginas de estos libros son: " + paginas.join(', '));
+        }
+
+        tomarDatos();
+    </script>
+</body>
+</html>

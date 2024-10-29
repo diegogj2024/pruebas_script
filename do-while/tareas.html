@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registrador de Tareas</title>
+</head>
+<body>
+    <script>
+        function tomarDatos() {
+            let tareas = [];
+            let resultado;
+            alert("Bienvenido al registrador de tareas")
+            console.log("Bienvenido al registrador de tareas");
+            do {
+                let nombre_tarea = prompt("Ingrese el nombre de la tarea:");
+                let vencimiento = prompt("Ingrese el vencimiento de la tarea:");
+                tareas.push({ nombre: nombre_tarea, vencimiento: vencimiento });
+                
+                resultado = parseInt(prompt("¿Desea ingresar otra tarea? Si: 1, No: 0"));
+            } while (resultado !== 0);
+            imprimir(tareas)
+        }
+
+        function imprimir(tareas) {
+            let acum = tareas.map(tarea => `${tarea.nombre} (Vencimiento: ${tarea.vencimiento})`).join(', ');
+            console.log("Las tareas registradas fueron: " + acum);
+            alert("Las tareas registradas fueron: " + acum);
+        }
+
+        tomarDatos();
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sensor de Temperatura</title>
+</head>
+<body>
+    <script>
+        function tomarDatos() {
+            let resultado;
+            console.log("Bienvenido al sensor de temperatura");
+            do {
+                resultado = parseFloat(prompt("Hola, señor usuario. Por favor, ingrese la temperatura actual:"));
+            } while (!procesarDatos(resultado));
+            imprimir();
+        }
+
+        function procesarDatos(temp) {
+            if (temp < 18 || temp > 25) {
+                alert("temperatura no adecada")
+                return false;
+            } else {
+                return true;
+            }
+        }
+
+        function imprimir() {
+            alert("Temperatura adecuada.");
+            console.log("Temperatura adecuada.");
+        }
+
+        tomarDatos();
+    </script>
+</body>
+</html>
