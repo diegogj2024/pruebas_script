@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de Adivinanza</title>
+</head>
+<body>
+    <h1>Juego de Adivinanza</h1>
+    <p>Adivina un número entre 1 y 100.</p>
+    <button id="start">Comenzar Juego</button>
+
+    <script>
+        let numeroAleatorio;
+        
+        function generarNumeroAleatorio() {
+            return parseInt(String(Math.floor(Math.random() * 100) + 1));
+        }
+
+        function manejarAdivinanza(adivinanza) {
+            let intentos = 0;
+            while (true) {
+                intentos++;
+                if (adivinanza < 1 || adivinanza > 100) {
+                    alert("La adivinanza debe estar entre 1 y 100.");
+                } else if (adivinanza === numeroAleatorio) {
+                    alert("¡Felicidades! Adivinaste el número: " + numeroAleatorio + " en " + intentos + " intentos.");
+                    break;
+                } else {
+                    let diferencia = Math.abs(adivinanza - numeroAleatorio);
+                    if (diferencia <= 2) {
+                        alert("¡Muy cerca! El número es " + (adivinanza < numeroAleatorio ? "mayor." : "menor."));
+                    } else if (diferencia <= 10) {
+                        alert("¡Cerca! El número es " + (adivinanza < numeroAleatorio ? "mayor." : "menor."));
+                    } else {
+                        alert("¡Lejos! El número es " + (adivinanza < numeroAleatorio ? "mayor." : "menor."));
+                    }
+                    adivinanza = parseInt(prompt("Adivina de nuevo:"));
+                }
+            }
+        }
+
+        function gestionarEntrada() {
+            document.getElementById("start").addEventListener("click", function() {
+                numeroAleatorio = generarNumeroAleatorio();
+                let adivinanza = parseInt(prompt("Ingresa tu adivinanza:"));
+                manejarAdivinanza(adivinanza);
+            });
+        }
+
+        gestionarEntrada();
+    </script>
+</body>
+</html>

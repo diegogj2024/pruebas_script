@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sumatoria y Promedio de un Rango de Números</title>
+</head>
+<body>
+    <script>
+        function pedirDatos() {
+            let inicio = parseInt(prompt("Ingrese el número inicial:"));
+            let fin = parseInt(prompt("Ingrese el número final:"));
+            if (isNaN(inicio) || isNaN(fin) || inicio > fin) {
+                alert("Error: Debe ingresar números válidos y el número inicial debe ser menor o igual al final.");
+                return null;
+            }
+            return { inicio, fin };
+        }
+
+        function calcularSumatoriaYPromedio(rango) {
+            let suma = 0;
+            let count = 0;
+            let i = rango.inicio;
+
+            while (i <= rango.fin) {
+                suma += i;
+                count++;
+                i++;
+            }
+
+            let promedio = suma / count;
+            return { suma, promedio };
+        }
+
+        function mostrarResultados(resultados) {
+            alert("La sumatoria es: " + resultados.suma)
+            alert("El promedio es: " + resultados.promedio)
+            console.log("La sumatoria es: " + resultados.suma);
+            console.log("El promedio es: " + resultados.promedio);
+        }
+
+        function main() {
+            let rango = pedirDatos();
+            if (rango !== null) {
+                let resultados = calcularSumatoriaYPromedio(rango);
+                mostrarResultados(resultados);
+            }
+        }
+
+        main();
+    </script>
+</body>
+</html>

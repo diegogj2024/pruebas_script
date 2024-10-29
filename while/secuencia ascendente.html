@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Poner en Ascendencia los Números :v</title>
+</head>
+<body>
+    <script>
+        function pedirDatos() {
+            let numero = parseInt(prompt("Ingrese un número positivo:"));
+
+            if (isNaN(numero) || numero <= 0) {
+                alert("Error: Debe ingresar un número positivo.");
+                return null;
+            }
+            return numero;
+        }
+
+        function procesarDatos(numero) {
+            var acumulador = [];
+            let i = 1;
+            while (i <= numero) {
+                acumulador.push(i);
+                i++;
+            }
+            return acumulador;
+        }
+
+        function mostrarResultados(acumulador) {
+            alert("La secuencia hasta su número es: " + acumulador.join(", "));
+            console.log("La secuencia hasta su número es: " + acumulador.join(", "));
+        }
+
+        function main() {
+            let numero = pedirDatos();
+            if (numero !== null) { 
+                let acumulador = procesarDatos(numero);
+                mostrarResultados(acumulador);
+            }
+        }
+
+        main();
+    </script>
+</body>
+</html>

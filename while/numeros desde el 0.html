@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Imprimir Números del Cero al Número Solicitado</title>
+</head>
+<body>
+    <script>
+        function pedirDatos() {
+            let numero = parseInt(prompt("Ingrese un número entero no negativo:"));
+            if (isNaN(numero) || numero < 0) {
+                alert("Error: Debe ingresar un número entero no negativo.");
+                return null;
+            }
+            return numero;
+        }
+
+        function procesarDatos(numero) {
+            let numeros = [];
+            let i = 0;
+            while (i <= numero) {
+                numeros.push(i);
+                i++;
+            }
+            return numeros;
+        }
+
+        function mostrarResultados(numeros) {
+            alert("Los números del 0 al " + (numeros.length - 1) + " son: " + numeros.join(", "))
+            console.log("Los números del 0 al " + (numeros.length - 1) + " son: " + numeros.join(", "));
+        }
+
+        function main() {
+            let numero = pedirDatos();
+            if (numero !== null) {
+                let numeros = procesarDatos(numero);
+                mostrarResultados(numeros);
+            }
+        }
+
+        main();
+    </script>
+</body>
+</html>
